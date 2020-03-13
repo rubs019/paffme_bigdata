@@ -52,4 +52,20 @@ hashtags STRING
     spark.sql("CREATE EXTERNAL TABLE IF NOT EXISTS paffme.tweet_v9(hashtag STRING, occurences INT, from BIGINT, to BIGINT) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS TEXTFILE")
 
 
-Si ca fonctionne passer par l'interface **HUE**
+Si ca fonctionne pas, passer par l'interface **HUE**
+
+## Spark
+
+Cf le projet dans le dossier `spark`
+
+On prend en paramètre du programme l'intervalle à utiliser (from/to)
+
+Ensuite une recherche est faite dans Hive pour filtrer les tweets
+
+Il y a ensuite un comptage et classement des hashtags
+
+On insère dans la table statistics de la base les données qu'on vient de calculer
+
+On affiche le top 10 sur l'intervalle demandé
+
+`spark-submit --deploy-mode client --class fr.xebia.xke.SparkMetricsExample spark_metrics-1.0-SNAPSHOT-shaded.jar` pour lancer le jar, on peut aussi le faire en mode cluster pour faire ça bien
