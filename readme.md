@@ -1,6 +1,76 @@
 # Hadoop/Spark Workshop
 *groupe : **PAFFME***
 
+## Récupération des tweets
+
+On a fait un utilitaire en Node.js qui utilise l'API Streaming de Twitter :
+
+```js
+const Twit = require('twit')
+
+const T = new Twit({
+  consumer_key: '',
+  consumer_secret: '',
+  access_token: '',
+  access_token_secret: '',
+  timeout_ms: 60*1000,
+  strictSSL: true
+})
+
+const fs = require('fs');
+
+const stream = T.stream('statuses/sample', { language: 'en' })
+let i = 0;
+
+stream.on('tweet', function (tweet) {
+  console.log(++i);
+  fs.appendFileSync('tweets.txt', JSON.stringify({created_at: tweet.created_at, text: tweet.text}) + '\n');
+})
+
+stream.on('error', function(err) {
+  console.error(err);
+});
+ ```
+ 
+ Cela créé un fichier JSON qui est mis à jour pour chaque nouveau tweet reçu. On a galéré à mettre ce JSON dans Hive, du coup on a fait un autre utilitaire pour mettre ça dans un CSV :
+ 
+ ```js
+const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+const csvWriter = createCsvWriter({
+  path: 'out.csv',
+  header: [
+    {id: 'text', title: 'text'},
+    {id: 'tdate', title: 'tdate'},
+    {id: 'hashtags', title: 'hashtags'},
+  ]
+});
+
+const fs = require('fs');
+const readline = require('readline');
+const lineReader = readline.createInterface({
+  input: fs.createReadStream('tweets.txt'),
+});
+
+const data = [];
+
+lineReader.on('line', function(line) {
+ const parsedLine = JSON.parse(line);
+  data.push({
+    tdate: Math.round(new Date(parsedLine.created_at).getTime() / 1000),
+    text: parsedLine.text.replace(/(\r\n|\n|\r)/gm, ""),
+    hashtags: parsedLine.text.match(/#\w+/gm)
+  });
+});
+
+lineReader.on('close', function() {
+  csvWriter.writeRecords(data).then(() => console.log('done'));
+});
+ ```
+ 
+Dans ce script pour transformer le JSON en CSV on en profite pour extraire les hashtags et retirer les \n du texte du tweet (sinon il y a beaucoup de ligne à NULL dans Hive).
+
+On a dû récuperer 180k tweets en 5/6h qui sont aujourd'hui dans Hive.
+
 ## Espace de travail
 Se connecter au SSH : 
 
