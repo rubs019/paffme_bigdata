@@ -139,3 +139,17 @@ On insère dans la table statistics de la base les données qu'on vient de calcu
 On affiche le top 10 sur l'intervalle demandé
 
 `spark-submit --deploy-mode client --class fr.xebia.xke.SparkMetricsExample spark_metrics-1.0-SNAPSHOT-shaded.jar` pour lancer le jar, on peut aussi le faire en mode cluster pour faire ça bien
+
+# checklist
+
+[] Récupérer les tweet en anglais et les stocker sur HDFS
+[] Préparer les tweet pour un traitement optimal par la suite
+[] implémenter l’algorithme de kmeans (interdit d’utiliser celui fourni
+dans spark)
+[] Chaque Heure
+[] Calculer le Top 10 des hashtag les plus utilisé
+[] Pour chaque hashtag calculer son évolution par rapport à
+l’heure précédente
+[] Appliquer le kmeans sur la latitude et longitude des tweet
+et/ou appliquer le kmeans sur le nombre de mots et le
+nombre de hashtag dans les tweet
