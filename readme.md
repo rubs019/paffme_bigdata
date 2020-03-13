@@ -142,10 +142,10 @@ On affiche le top 10 sur l'intervalle demandé
 
 # checklist
 
-- [x] Récupérer les tweet en anglais et les stocker sur HDFS *Node.js*
-- [x] Préparer les tweet pour un traitement optimal par la suite *Node.js*
+- [x] Récupérer les tweet en anglais et les stocker sur HDFS **Node.js**
+- [x] Préparer les tweet pour un traitement optimal par la suite **Node.js**
 - [ ] implémenter l’algorithme de kmeans (interdit d’utiliser celui fourni dans spark)
-- [x] Chaque Heure -> *on arrive pas à vérifier via les logs que c'est ok, la config est faite*
-- [x] Calculer le Top 10 des hashtag les plus utilisé *dans le code Spark*
-- [ ] Pour chaque hashtag calculer son évolution par rapport à l’heure précédente *On a les infos dans la table statistics, on a pas eu le temps de créer le code pour calculer l'évolution*
+- [x] Chaque Heure -> **on arrive pas à vérifier via les logs que c'est ok, la config est faite**
+- [x] Calculer le Top 10 des hashtag les plus utilisé **dans le code Spark**
+- [ ] Pour chaque hashtag calculer son évolution par rapport à l’heure précédente **On a les infos dans la table statistics, on a pas eu le temps de créer le code pour calculer l'évolution**
 - [ ] Appliquer le kmeans sur la latitude et longitude des tweet et/ou appliquer le kmeans sur le nombre de mots et le nombre de hashtag dans les tweet
