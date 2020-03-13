@@ -142,14 +142,10 @@ On affiche le top 10 sur l'intervalle demandé
 
 # checklist
 
-[] Récupérer les tweet en anglais et les stocker sur HDFS
-[] Préparer les tweet pour un traitement optimal par la suite
-[] implémenter l’algorithme de kmeans (interdit d’utiliser celui fourni
-dans spark)
-[] Chaque Heure
-[] Calculer le Top 10 des hashtag les plus utilisé
-[] Pour chaque hashtag calculer son évolution par rapport à
-l’heure précédente
-[] Appliquer le kmeans sur la latitude et longitude des tweet
-et/ou appliquer le kmeans sur le nombre de mots et le
-nombre de hashtag dans les tweet
+[ ] Récupérer les tweet en anglais et les stocker sur HDFS
+[ ] Préparer les tweet pour un traitement optimal par la suite
+[ ] implémenter l’algorithme de kmeans (interdit d’utiliser celui fourni dans spark)
+[ ] Chaque Heure
+[ ] Calculer le Top 10 des hashtag les plus utilisé
+[ ] Pour chaque hashtag calculer son évolution par rapport à l’heure précédente
+[ ] Appliquer le kmeans sur la latitude et longitude des tweet et/ou appliquer le kmeans sur le nombre de mots et le nombre de hashtag dans les tweet
