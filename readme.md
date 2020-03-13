@@ -150,3 +150,11 @@ On affiche le top 10 sur l'intervalle demandé
 - [x] Calculer le Top 10 des hashtag les plus utilisé **dans le code Spark**
 - [ ] Pour chaque hashtag calculer son évolution par rapport à l’heure précédente **On a les infos dans la table statistics, on a pas eu le temps de créer le code pour calculer l'évolution**
 - [ ] Appliquer le kmeans sur la latitude et longitude des tweet et/ou appliquer le kmeans sur le nombre de mots et le nombre de hashtag dans les tweet
+
+# Notes
+
+Merci pour le cours, c'était intéressant!
+
+C'est dur d'arriver à comprendre comment s'inter-connecte toutes les briques donc on a mis du temps à démarrer
+
+Pas de chance c'était la semaine des soutenances de mémoire donc le groupe n'était pas forcément focus à 100%
