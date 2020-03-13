@@ -1,6 +1,6 @@
 # Hadoop/Spark Workshop
 
-*groupe : **PAFFME***
+Groupe : **PAFFME***
 
 ## Récupération des tweets
 
